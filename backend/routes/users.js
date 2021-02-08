@@ -9,12 +9,12 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
   const username = req.body.username;
-  const newUser = new User({ username });
 
+  const newUser = new User({ username });
+  console.log('Adding a user');
   newUser
     .save()
-    .then(() => res.json('User Added!'))
+    .then(() => res.json('User added!'))
     .catch((err) => res.status(400).json('Error: ' + err));
 });
-
 module.exports = router;
